@@ -487,6 +487,7 @@ class TelephonyIcons {
                 }
                 break;
             case TelephonyManager.NETWORK_TYPE_HSPAP:
+            case TelephonyManager.NETWORK_TYPE_DC_HSPAP:
                 if (hspaDistinguishable || MobileSignalController.
                         isCarrierOneSupported()) {
                     mSelectedDataActivityIndex[slot] = DATA_TYPE_HP;

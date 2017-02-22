@@ -160,6 +160,12 @@ public class ServiceState implements Parcelable {
      * @hide
      */
     public static final int RIL_RADIO_TECHNOLOGY_LTE_CA = 19;
+    
+    /**
+     * DC_HSPAP
+     * @hide
+     */
+    public static final int RIL_RADIO_TECHNOLOGY_DC_HSPAP = 20;
 
     /** @hide */
     public static final int RIL_RADIO_CDMA_TECHNOLOGY_BITMASK =
@@ -766,6 +772,9 @@ public class ServiceState implements Parcelable {
             case RIL_RADIO_TECHNOLOGY_LTE_CA:
                 rtString = "LTE_CA";
                 break;
+            case RIL_RADIO_TECHNOLOGY_DC_HSPAP:
+                rtString = "DC_HSPAP";
+                break;
             default:
                 rtString = "Unexpected";
                 Rlog.w(LOG_TAG, "Unexpected radioTechnology=" + rt);
@@ -1128,6 +1137,7 @@ public class ServiceState implements Parcelable {
         case ServiceState.RIL_RADIO_TECHNOLOGY_LTE:
             return TelephonyManager.NETWORK_TYPE_LTE;
         case ServiceState.RIL_RADIO_TECHNOLOGY_HSPAP:
+        case ServiceState.RIL_RADIO_TECHNOLOGY_DC_HSPAP:
             return TelephonyManager.NETWORK_TYPE_HSPAP;
         case ServiceState.RIL_RADIO_TECHNOLOGY_GSM:
             return TelephonyManager.NETWORK_TYPE_GSM;
@@ -1189,7 +1199,8 @@ public class ServiceState implements Parcelable {
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_GSM
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_TD_SCDMA
                 || radioTechnology == RIL_RADIO_TECHNOLOGY_IWLAN
-                || radioTechnology == RIL_RADIO_TECHNOLOGY_LTE_CA;
+                || radioTechnology == RIL_RADIO_TECHNOLOGY_LTE_CA
+                || radioTechnology == RIL_RADIO_TECHNOLOGY_DC_HSPAP;
 
     }
 
